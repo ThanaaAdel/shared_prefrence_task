@@ -1,0 +1,15 @@
+{
+  "live_exam" : "امتحان اللايف",
+  "text_from_live_exam": "لدينا امتحان مباشر سيبدأ في الساعة 10 مساءً",
+  "student_name": "اسم الطالب",
+  "student_class": "الصف الاول الثانوي",
+  "Student_Term": "الترم الاول",
+  "introductory_videos": "فيديوهات تمهيدية",
+  "start_studying": "ابدأ ذاكر",
+  "select_the_class": "اختر الفصل",
+  "final_review": "المراجعة النهائية",
+  "start_the_journey": "ابدأ رحلتك",
+  "explanation_of_the_curriculum" : "شرح المنهج",
+  "class_exams": "امتحانات الفصول"
+
+}

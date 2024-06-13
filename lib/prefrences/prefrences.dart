@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../models/login_request_model.dart';
-
+import 'package:shared_prefrence_task/models/home_model/home_model.dart';
 
 class Preferences {
   static final Preferences instance = Preferences._internal();
@@ -11,84 +9,84 @@ class Preferences {
 //
   factory Preferences() => instance;
 
-  Future<void> setFirstInstall() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('onBoarding', 'Done');
-  }
-
-  Future<String?> getFirstInstall() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? jsonData = prefs.getString('onBoarding');
-    return jsonData;
-  }
-
-  ////notification
-  bool notiSound = true;
-  bool notiVisbrate = true;
-  bool notiLight = true;
-
-  Future<void> setNotiSound({bool status = true}) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('notiSound', status);
-  }
-
-  Future<bool?> getNotiSound() async {
-    try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      notiSound = prefs.getBool('notiSound') ?? true;
-    } catch (e) {
-      notiSound = true;
-    }
-    return notiSound;
-  }
-
-  Future<void> setNotiVibrate({bool status = true}) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('notiVibrate', status);
-  }
-
-  Future<bool?> getNotiVibrate() async {
-    try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      notiVisbrate = prefs.getBool('notiVibrate') ?? true;
-    } catch (e) {
-      notiVisbrate = true;
-    }
-    return notiVisbrate;
-  }
-
-  Future<void> setNotiLights({bool status = true}) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('notiLights', status);
-  }
-
-  Future<bool?> getNotiLights() async {
-    try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      notiLight = prefs.getBool('notiLights') ?? true;
-    } catch (e) {
-      notiLight = true;
-    }
-    return notiLight;
-  }
+  // Future<void> setFirstInstall() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setString('onBoarding', 'Done');
+  // }
+  //
+  // Future<String?> getFirstInstall() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   String? jsonData = prefs.getString('onBoarding');
+  //   return jsonData;
+  // }
+  //
+  // ////notification
+  // bool notiSound = true;
+  // bool notiVisbrate = true;
+  // bool notiLight = true;
+  //
+  // Future<void> setNotiSound({bool status = true}) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setBool('notiSound', status);
+  // }
+  //
+  // Future<bool?> getNotiSound() async {
+  //   try {
+  //     SharedPreferences prefs = await SharedPreferences.getInstance();
+  //     notiSound = prefs.getBool('notiSound') ?? true;
+  //   } catch (e) {
+  //     notiSound = true;
+  //   }
+  //   return notiSound;
+  // }
+  //
+  // Future<void> setNotiVibrate({bool status = true}) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setBool('notiVibrate', status);
+  // }
+  //
+  // Future<bool?> getNotiVibrate() async {
+  //   try {
+  //     SharedPreferences prefs = await SharedPreferences.getInstance();
+  //     notiVisbrate = prefs.getBool('notiVibrate') ?? true;
+  //   } catch (e) {
+  //     notiVisbrate = true;
+  //   }
+  //   return notiVisbrate;
+  // }
+  //
+  // Future<void> setNotiLights({bool status = true}) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setBool('notiLights', status);
+  // }
+  //
+  // Future<bool?> getNotiLights() async {
+  //   try {
+  //     SharedPreferences prefs = await SharedPreferences.getInstance();
+  //     notiLight = prefs.getBool('notiLights') ?? true;
+  //   } catch (e) {
+  //     notiLight = true;
+  //   }
+  //   return notiLight;
+  // }
   //////////////////////////////////
 
-  Future<String> getPrimaryColor() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString('primaryColor') ?? '#4455D7';
-  }
-
-  Future<void> setPrimaryColor(String color) async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    preferences.setString('primaryColor', color);
-  }
-
-  Future<void> saveDownloadPaths(String path) async {
-    List<String> paths = await getSavedDownloadPaths();
-    paths.add(path);
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setStringList('savedDownloadPaths', paths);
-  }
+  // Future<String> getPrimaryColor() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   return prefs.getString('primaryColor') ?? '#4455D7';
+  // }
+  //
+  // Future<void> setPrimaryColor(String color) async {
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   preferences.setString('primaryColor', color);
+  // }
+  //
+  // Future<void> saveDownloadPaths(String path) async {
+  //   List<String> paths = await getSavedDownloadPaths();
+  //   paths.add(path);
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setStringList('savedDownloadPaths', paths);
+  // }
 
   // Future<void> saveDownloadVideos(SaveVideoModel saveVideoModel) async {
   //   SaveVideoModelList videos = await getSavedDownloadVideos();
@@ -100,10 +98,10 @@ class Preferences {
   //   );
   // }
 
-  Future<List<String>> getSavedDownloadPaths() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getStringList('savedDownloadPaths') ?? [];
-  }
+  // Future<List<String>> getSavedDownloadPaths() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   return prefs.getStringList('savedDownloadPaths') ?? [];
+  // }
 
   // Future<SaveVideoModelList> getSavedDownloadVideos() async {
   //   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -120,38 +118,38 @@ class Preferences {
   //   }
   //   return saveVideoModelList;
   // }
+  //
+  // Future<bool> searchOnSavedDownloadPaths(String path) async {
+  //   List<String> paths = await getSavedDownloadPaths();
+  //   if (paths.contains(path) == true) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
-  Future<bool> searchOnSavedDownloadPaths(String path) async {
-    List<String> paths = await getSavedDownloadPaths();
-    if (paths.contains(path) == true) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  Future<void> setUser(LoginRequestModel userModel) async {
+  Future<void> setUser(HomeModel userModel) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setString(
       'user',
       jsonEncode(
-        LoginRequestModel.fromJson(
+        HomeModel.fromJson(
           userModel.toJson(),
         ),
       ),
     );
   }
 
-  Future<LoginRequestModel> getUserModel() async {
+  Future<HomeModel> getUserModel() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     String? jsonData = preferences.getString('user');
-    LoginRequestModel userModel;
+    HomeModel userModel;
     if (jsonData != null) {
-      userModel = LoginRequestModel.fromJson(jsonDecode(jsonData));
+      userModel = HomeModel.fromJson(jsonDecode(jsonData));
       // userModel.data?.isLoggedIn = true;
     } else {
       // Provide default values for email and birthDate
-      userModel = LoginRequestModel(null, null); // You can provide default values or handle nulls as needed
+      userModel = HomeModel(); // You can provide default values or handle nulls as needed
     }
     return userModel;
   }
@@ -181,15 +179,15 @@ class Preferences {
   //   return examAnswerListModel;
   // }
 
-  Future<bool> clearUserData() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    return preferences.remove('user');
-  }
-
-  Future<bool> clearAllData() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    return preferences.clear();
-  }
+  // Future<bool> clearUserData() async {
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   return preferences.remove('user');
+  // }
+  //
+  // Future<bool> clearAllData() async {
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   return preferences.clear();
+  // }
 
   // Future<String> getSavedLang() async {
   //   SharedPreferences preferences = await SharedPreferences.getInstance();

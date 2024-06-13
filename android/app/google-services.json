@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "223981517135",
+    "project_id": "albaher-53911",
+    "storage_bucket": "albaher-53911.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:223981517135:android:3bb2ed0b0725966c0f6d3a",
+        "android_client_info": {
+          "package_name": "com.albaher.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7H3mDHvcJiIF96OgMz5nJpgpJeB08pOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:223981517135:android:15f7c536bcd143c50f6d3a",
+        "android_client_info": {
+          "package_name": "com.example.shared_prefrence_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7H3mDHvcJiIF96OgMz5nJpgpJeB08pOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
